@@ -10,7 +10,7 @@ public class PrintMazePathWithMultipleJump {
         int count=0;
         for(int j =1;sc+j<dc ; j++)count+=PrintMazePathWithMultipleJumpFunction(sr, sc+j, dr, dc, psf+"H"+j);
         for(int j =1;sr+j<dr ; j++)count+=PrintMazePathWithMultipleJumpFunction(sr+j, sc, dr, dc, psf+"V"+j);
-        for(int j =1;sr+j<dr && sc+j<dc ; j++)count+=PrintMazePathWithMultipleJumpFunction(sr+1, sc+1, dr, dc, psf+"D"+j);
+        for(int j =1;sr+j<dr && sc+j<dc ; j++)count+=PrintMazePathWithMultipleJumpFunction(sr+j, sc+j, dr, dc, psf+"D"+j);
         return count;
     }
     public static void main(String[] args){
