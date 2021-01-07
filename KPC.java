@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class KPC {
     static String[] codes = {".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
     public static ArrayList<String> KPCfunction(String s){
-
+        
         if(s.length()==0){
             ArrayList<String> base = new ArrayList<>();
             base.add("");

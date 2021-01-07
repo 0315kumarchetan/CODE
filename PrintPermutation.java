@@ -1,22 +1,24 @@
 import java.util.Scanner;
 
-public class PrintPermutation{
-
-    public static void PrintPermutationFunction(String s,String ans){
+public class PrintPermutation {
+    public static Scanner scn = new Scanner(System.in);
+    public static int  PrintPermutationFunction(String s ,String asf){
         if(s.length()==0){
-            System.out.println(ans);
-            return;
+            System.out.println(asf);
+            return 1;
         }
-        for(int i = 0 ; i< s.length(); i++){
+        
+        int count = 0; 
+        for(int i = 0 ;i < s.length() ;i++){
             char ch = s.charAt(i);
-            PrintPermutationFunction(s.substring(0, i)+s.substring(i+1),ans+ch);
+            count+=PrintPermutationFunction(s.substring(0,i)+s.substring(i+1), asf+ch);
         }
-
+        return count;
     }
     public static void main(String[] args){
-        Scanner scn = new Scanner(System.in);
         String s = scn.nextLine();
-        PrintPermutationFunction(s,"");
-    }
+        int ans = PrintPermutationFunction(s,"");
+        System.out.println(ans);
 
+    }
 }

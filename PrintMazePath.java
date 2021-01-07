@@ -1,18 +1,22 @@
+
 import java.util.Scanner;
 public class PrintMazePath {
-public static Scanner scn =new Scanner(System.in); 
-public static int PrintMazePathFunction(int sr , int sc , int dr , int dc , String psf){
-    if(sc==dc && sr ==dr){
-        System.out.println(psf);
-        return 1;
+    public static void PrintMazePathFunction(int sr,int sc , int dr,int dc,String asf){
+        if(sr==dr && sc == dc){
+            System.out.println(asf);
+            return;
+        }
+
+        if(sc<=dc)PrintMazePathFunction(sr, sc+1, dr, dc, asf+"H");
+        if(sr<=dr)PrintMazePathFunction(sr+1, sc, dr, dc, asf+"V");
+        if(sc<=dc && sr<=dr)PrintMazePathFunction(sr+1, sc+1, dr, dc, asf+"D");
     }
-    int count=0;
-    if(sc+1<=dc)count+=PrintMazePathFunction(sr, sc+1, dr, dc, psf+'H');
-    if(sr+1<=dr)count+=PrintMazePathFunction(sr+1, sc, dr, dc, psf+'V');
-    if(sr+1<=dr && sc+1<=dc)count+=PrintMazePathFunction(sr+1, sc+1, dr, dc, psf+'D');
-    return count;
-}
-public static void main(String[] args){
-    System.out.println(PrintMazePathFunction(0,0,scn.nextInt()-1,scn.nextInt()-1,""));
-}   
+
+    public static Scanner scn = new Scanner(System.in);
+    public static void main(String[] args){
+        int n = scn.nextInt();
+        int m = scn.nextInt();
+        PrintMazePathFunction(0,0,n-1,m-1,"");
+
+    }
 }

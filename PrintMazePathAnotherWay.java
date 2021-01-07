@@ -16,7 +16,7 @@ public class PrintMazePathAnotherWay {
         return count;
     }
     public static void main(String[] args){
-        int[][] dir ={{0,1},{1,0},{1,1}};
+        int[][] dir ={{0,1},{1,0},{1,1}};//direction array
         String[] dirS= {"H","V","D"};
         PrintMazePathAnotherWayFunction(0,0,scn.nextInt(),scn.nextInt(),dir ,dirS,"");
 

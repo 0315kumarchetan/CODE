@@ -1,7 +1,4 @@
 import java.util.Scanner;
-
-
-
 public class KPCextendex {
     public static String[] codes={".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz","+-*","/%^"};
     public static Scanner scn = new Scanner(System.in);
