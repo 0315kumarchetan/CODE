@@ -64,5 +64,32 @@ public class leetcode {
     }
     //===========================end===========================================
 
-
+     //question 46============start===============================================
+    class Solution {
+        List<Integer> smallAns = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        boolean[] vis =new boolean[21];
+        public void permutation(int[] arr){
+            if(smallAns.size()==arr.length){
+                res.add(new ArrayList<>(smallAns));
+                return;
+            }
+            
+            for(int i =0 ;i < arr.length;i++){
+                if(!vis[i]){
+                vis[i]=true;
+                smallAns.add(arr[i]);
+                permutation(arr);
+                smallAns.remove(smallAns.size()-1); 
+                vis[i]=false;
+            }
+            }
+            
+        }
+        public List<List<Integer>> permute(int[] nums) {
+            permutation(nums);
+            return res;
+        }
+         //====================End===============================================
+    }
 }
