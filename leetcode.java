@@ -134,6 +134,42 @@ public class leetcode {
                
            }
        }
+       //=====================optimize code========================================
+       class Solution {
+        boolean[] rowA;
+        boolean[] colA;
+        boolean[] diagA;
+        boolean[] aDiagA;
+       public void toggle(int r ,int c,int n){
+           colA[c]=!colA[c];
+           diagA[r-c+(n-1)]=!diagA[r-c+(n-1)];
+           aDiagA[r+c]=!aDiagA[r+c];
+       }
+       public int nQueen(int n,int tnq ,int r ){
+           if(tnq==0){
+               return 1;
+           }
+           int count=0;
+           for(int c =0 ;c< n ;c++){
+               if( !colA[c] && !diagA[r-c+(n-1)] && !aDiagA[r+c]){
+                   toggle(r,c,n);
+                   count+=nQueen(n,tnq-1,r+1);
+                   toggle(r,c,n);
+               }
+           }
+          return count; 
+       }
+       public int totalNQueens(int n) {
+           rowA=new boolean[n];
+           colA=new boolean[n];
+           diagA=new boolean[n+n-1];
+           aDiagA=new boolean[n+n-1];
+           int tnq=n;
+           int ans = nQueen(n,tnq,0);
+           return ans;
+           
+       }
+   }
        //===================END=====================================================
     }
 }
