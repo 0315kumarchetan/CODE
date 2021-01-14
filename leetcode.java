@@ -91,5 +91,49 @@ public class leetcode {
             return res;
         }
          //====================End===============================================
+
+         //=======================Start Leetcode 52 ===============================
+         class Solution {
+            boolean[] rowA;
+            boolean[] colA;
+            boolean[] diagA;
+            boolean[] aDiagA;
+           public void toggle(int r ,int c,int n){
+               rowA[r]=!rowA[r];
+               colA[c]=!colA[c];
+               diagA[r-c+(n-1)]=!diagA[r-c+(n-1)];
+               aDiagA[r+c]=!aDiagA[r+c];
+           }
+           public int nQueen(int tnq , int n , int idx ){
+               if(tnq==0){
+                   return 1;
+               }
+               int count=0;
+               for(int i = idx ;i< n*n ;i++){
+                   int r = i/n;
+                   int c =i%n;
+                   if(!rowA[r] && !colA[c] && !diagA[r-c+(n-1)] && !aDiagA[r+c]){
+                       toggle(r,c,n);
+                       count+=nQueen(tnq-1,n,i+1);
+                       toggle(r,c,n);
+                   }
+               }
+               
+              return count; 
+           }
+           
+           
+           public int totalNQueens(int n) {
+               rowA=new boolean[n];
+               colA=new boolean[n];
+               diagA=new boolean[n+n-1];
+               aDiagA=new boolean[n+n-1];
+               int tnq=n;
+               int ans = nQueen(tnq,n,0);
+               return ans;
+               
+           }
+       }
+       //===================END=====================================================
     }
 }
