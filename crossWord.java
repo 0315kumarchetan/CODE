@@ -104,7 +104,7 @@ public class crossWord {
     };
  
         String[] words = {"LONDON","DELHI","ICELAND","ANKARA"};
-        int ans = crossWordFunction(arr,words,0);
+        int ans = crossWordFunction(arr,words,0);//
         System.out.println(ans);
     }
     
